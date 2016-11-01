@@ -32,4 +32,4 @@ multiplatform (All java based)
 java -jar dist/jasperReportListener.jar
 ```
 
-Then connect to thtp://127.0.0.1:8777 with any browser
+Then connect to http://127.0.0.1:8777 with any browser
