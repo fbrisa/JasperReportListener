@@ -1,0 +1,35 @@
+{% extends "www/sempre.html.twig" %}
+
+{#{% block title %}{{websiteTitle}}{% endblock %}#}
+
+{% block content %}
+    <div class="container" id="session-container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="/server.svg" style="width: 100px;height: 100px;margin-right: 10px; float: left;">
+                {#<div style="background-size: auto;background-repeat: no-repeat ;background-image: url(report.svg);width: 100px;height: 100px;"></div>#}
+                <h2>Session history JasperReportListener</h2>
+            </div>
+        </div>
+        <div class="row spaziataInAlto">
+            <div class="col-md-12">
+                {{sessionHistory.size() }} elements / {{maxHistorySize}}
+            </div>
+        </div>
+        <div class="row spaziataInAlto">
+            <div class="col-md-12">
+                <table>
+                {% for she in sessionHistory  %}
+                    <tr>
+                        <td>{{loop.index+1}}</td>
+                        <td>{{she.time|date('d/m/Y h:m:s')}}</td>
+                        <td><a href="{{she.url}}">{{she.url}}</a></td>
+                        <td>{{she.fileEsiste?"OK":""}}</td>
+                    </tr>
+                    
+                {%endfor%}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

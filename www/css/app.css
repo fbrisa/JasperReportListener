@@ -1,0 +1,22 @@
+
+footer {
+    padding-top: 4px;
+    border-top: 1px solid grey;
+    color: black;
+    background-color: lightgray;
+}
+
+
+.spaziataInAlto {
+    margin-top: 10px;
+}
+
+
+#session-container table td {
+    padding: 2px 10px;
+}
+
+
+.repoName {
+    font-weight: bold;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}JasperReportListener{% endblock %}</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="/js/jquery/dist/jquery.min.js" type="text/javascript"></script>
+
+        <link href="/js/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="/js/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+
+        <link href="/css/sticky_footer.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/app.css" rel="stylesheet" type="text/css"/>
+        <script src="/js/custom/generale.js" type="text/javascript"></script>
+        
+        {% block header %}{% endblock %}
+    </head>
+    <body>
+        <div class="page-wrap">
+            {% include 'www/navbar.html.twig' %}
+            {% block content %}{% endblock %}
+        </div>
+    <footer>
+        {% block footer %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        Copyright 2016
+                    </div>
+                    <div class="col-md-4 text-center">
+                        License: <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPLv3</a>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        Brisa Francesco Angelo
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </footer>
+</body>
+</html>

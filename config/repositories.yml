@@ -1,0 +1,31 @@
+repositories:
+    locale:
+        parameters:
+            dstype: mysql
+            database_host: localhost
+            database_port: null
+            database_name: test
+            database_user: root
+            database_password: null
+        jasperParameters:
+            #abc: 123
+        folder: ./myjaspers
+    remoto:
+        parameters:
+            dstype: mysql
+            database_host: localhost
+            database_port: null
+            database_name: test
+            database_user: root
+            database_password: null
+        jasperParameters:
+        folder: ./myjaspers
+
+
+jasperStarterFolder: /opt/jasperstarter
+port: 8777
+historySize: 100
+tmpFolder:
+    path: /tmp/pdftmp
+    deleteTmpFilesOlder: 1
+    deletableExtensions: [pdf]

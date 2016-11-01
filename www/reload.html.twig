@@ -1,0 +1,40 @@
+{% extends "www/sempre.html.twig" %}
+
+{#{% block title %}{{websiteTitle}}{% endblock %}#}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="/server.svg" style="width: 100px;height: 100px;margin-right: 10px; float: left;">
+                {#<div style="background-size: auto;background-repeat: no-repeat ;background-image: url(report.svg);width: 100px;height: 100px;"></div>#}
+                <h2>Repository ricaricati</h2>
+            </div>
+        </div>
+        <div class="row spaziataInAlto">
+            <div class="col-md-12">
+                {{repositories.size()}} repositories<br/>
+                
+                <ul>
+                {% for repo in repositories.entrySet() %}
+                    <li>
+                        <span class="repoName" >{{repo.key}}</span>
+                        <ul>
+                            <li>folder: {{repo.value.folder}}</li>
+                            <li>parameters:
+                                <ul>
+                                    <li>dstype: {{repo.value.dstype}}</li>
+                                    <li>database_host: {{repo.value.database_host}}</li>
+                                    <li>database_port: {{repo.value.database_port}}</li>
+                                    <li>database_name: {{repo.value.database_name}}</li>
+                                    <li>database_user: {{repo.value.database_user}}</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                {%endfor%}
+                <ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

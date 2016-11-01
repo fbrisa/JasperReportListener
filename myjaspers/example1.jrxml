@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="example1" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="539" leftMargin="28" rightMargin="28" topMargin="28" bottomMargin="28" whenResourceMissingType="Empty" uuid="3e95c39d-3611-4112-822d-f1107e89cb13">
+	<property name="ireport.zoom" value="1.210000000000003"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="COD" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[Link con tabella stampatesta]]></parameterDescription>
+		<defaultValueExpression><![CDATA["70"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="folder" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["."]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     stampa_testa.`id` AS stampa_testa_id,
+     stampa_testa.`data` AS stampa_testa_data,
+     stampa_testa.`user` AS stampa_testa_user,
+     stampa_testa.`elemntoidnum` AS stampa_testa_elemntoidnum,
+     stampa_testa.`elemntoidtesto` AS stampa_testa_elemntoidtesto,
+     stampa_corpo.`data00` AS stampa_corpo_data00,
+     stampa_corpo.`data01` AS stampa_corpo_data01,
+     stampa_corpo.`testo00` AS stampa_corpo_testo00,
+     stampa_corpo.`testo01` AS stampa_corpo_testo01,
+     stampa_corpo.`decimale00` AS stampa_corpo_decimale00,
+     stampa_corpo.`decimale01` AS stampa_corpo_decimale01,
+     stampa_corpo.`lungo01` AS stampa_corpo_lungo01,
+     stampa_corpo.`lungo00` AS stampa_corpo_lungo00,
+     stampa_corpo.`intero00` AS stampa_corpo_intero00,
+     stampa_corpo.`intero01` AS stampa_corpo_intero01,
+     stampa_testa.`titolo` AS stampa_testa_titolo
+FROM
+     `stampa_corpo` stampa_corpo INNER JOIN `stampa_testa` stampa_testa ON stampa_corpo.`stampatesta` = stampa_testa.`id`
+WHERE
+     stampa_testa.`id` = $P{COD}]]>
+	</queryString>
+	<field name="stampa_testa_id" class="java.lang.Integer"/>
+	<field name="stampa_testa_data" class="java.sql.Timestamp"/>
+	<field name="stampa_testa_user" class="java.lang.String"/>
+	<field name="stampa_testa_elemntoidnum" class="java.lang.Integer"/>
+	<field name="stampa_testa_elemntoidtesto" class="java.lang.String"/>
+	<field name="stampa_corpo_data00" class="java.sql.Timestamp"/>
+	<field name="stampa_corpo_data01" class="java.sql.Timestamp"/>
+	<field name="stampa_corpo_testo00" class="java.lang.String"/>
+	<field name="stampa_corpo_testo01" class="java.lang.String"/>
+	<field name="stampa_corpo_decimale00" class="java.math.BigDecimal"/>
+	<field name="stampa_corpo_decimale01" class="java.math.BigDecimal"/>
+	<field name="stampa_corpo_lungo01" class="java.lang.String"/>
+	<field name="stampa_corpo_lungo00" class="java.lang.String"/>
+	<field name="stampa_corpo_intero00" class="java.lang.Integer"/>
+	<field name="stampa_corpo_intero01" class="java.lang.Integer"/>
+	<field name="stampa_testa_titolo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="90645759-e9d3-423b-8622-51eb2d3e89c3"/>
+				<text><![CDATA[stampa_testa_id]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="0" width="200" height="20" uuid="daf9b10c-dfe1-4ce6-82bb-37dcc787ab84"/>
+				<textFieldExpression><![CDATA[$F{stampa_testa_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="20" uuid="65ea7cfa-349c-4aff-8d24-d072afabdcae"/>
+				<text><![CDATA[stampa_testa_data]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH:mm:ss">
+				<reportElement x="100" y="20" width="200" height="20" uuid="38c3b0ae-f516-4abd-a1d5-1985b439d61f"/>
+				<textFieldExpression><![CDATA[$F{stampa_testa_data}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="300" height="20" uuid="ec48467f-35d1-4890-baca-642141b3100d"/>
+				<text><![CDATA[stampa_corpo_testo00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="100" height="20" uuid="fbb65b5c-d8b3-4f73-bf6c-c27f01ce06dc"/>
+				<text><![CDATA[stampa_corpo_intero00]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="300" height="20" uuid="b1e541e9-e12e-4bae-ae81-3f69c1ea3710"/>
+				<textFieldExpression><![CDATA[$F{stampa_corpo_testo00}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="20" uuid="d48e98a0-d013-4cad-8e61-8bbb6e2c6fc3"/>
+				<textFieldExpression><![CDATA[$F{stampa_corpo_intero00}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

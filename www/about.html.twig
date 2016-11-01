@@ -1,0 +1,36 @@
+{% extends "www/sempre.html.twig" %}
+
+{#{% block title %}{{websiteTitle}}{% endblock %}#}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="/server.svg" style="width: 100px;height: 100px;margin-right: 10px; float: left;">
+            </div>
+            <div class="col-md-9">
+                <h2>About JasperReportListener</h2>
+                JasperReportListener is a server that runs jasper reports on demand, via a simple http request
+                where you specify:
+                <ul>
+                    <li>A repository name (repo=reponame)</li>
+                    <li>A Report name (jasper=reportname)</li>
+                    <li>A pdf file name to be created (out=myoutfile.pdf)</li>
+                    <li>Zero or more optional parameters to pass to the report (id=1&type=5 etc...)</li>
+                </ul>
+                
+                To create a simple call like this: 
+                <a href="/jasper/?out=test.pdf&jasper=exampleEmpty&repo=locale">http://127.0.0.1:8777/jasper/?out=test.pdf&jasper=exampleEmpty&repo=locale</a>
+                that will generate a pdf.<br/>
+                <br/>
+                No DB required (Despite you will tipically use one for report data)
+            </div>
+        </div>
+        <div class="row spaziataInAlto">
+            <div class="col-md-12">
+                <div>Version: {{version}}</div>
+                <div>Verbosity: {{verboseLevel}}</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

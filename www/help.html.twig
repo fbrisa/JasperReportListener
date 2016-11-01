@@ -1,0 +1,40 @@
+{% extends "www/sempre.html.twig" %}
+
+{#{% block title %}{{websiteTitle}}{% endblock %}#}
+
+
+{% block header %}
+    <style>
+        .elenco {
+            list-style-type: none;
+        }
+
+        .elenco> li {
+            margin-bottom: 10px;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="server.svg" style="width: 100px;height: 100px;margin-right: 10px; float: left;">
+                {#<div style="background-size: auto;background-repeat: no-repeat ;background-image: url(report.svg);width: 100px;height: 100px;"></div>#}
+                <h2>Help jasperReportListener</h2>
+            </div>
+        </div>
+        <div class="row spaziataInAlto">
+            <div class="col-md-12">
+                <ul class="elenco">
+                    <li><a href="/jasper/?out=test.pdf&jasper=exampleEmpty&repo=locale">jasper</a> Empty report example</li>
+                    <li><a href="/jasper/?out=test.pdf&jasper=miojasper&repo=locale&COD=1">jasper</a> Empty report example 2</li>
+                    <li><a href="/cmd/?cmd=shutdown" style="background-color: red;" >Spegni</a> To switch jasperlistener off</li>
+                    <li><a href="/reload/">reload</a> To reload repositories</li>
+                    <li><a href="/about/" style="color: green;">about</a> about ...</li>
+                    <li><a href="/about/?verboseLevel=2" style="color: green;">Setting verbosity</a> To change verbosity ...</li>
+                    <li><a href="/help/" style="color: green;">help</a> This help</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

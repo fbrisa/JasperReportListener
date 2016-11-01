@@ -1,0 +1,53 @@
+{% extends "www/sempre.html.twig" %}
+
+{#{% block title %}{{websiteTitle}}{% endblock %}#}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="/server.svg" style="width: 100px;height: 100px;margin-right: 10px; float: left;">
+                <h2>Command: {{cmd}}</h2>
+            </div>
+        </div>
+        <div class="row spaziataInAlto">
+            <div class="col-md-12">
+
+                {%if cmd=='shutdown' %}
+                    Switching server off <span id='puntini'></span>
+
+                    <script>
+                        var checkSpegnimento = function () {
+                            $.ajax({
+                                url: "/json",
+                                timeout: 600000,
+                                data: {"_": $.now()},
+                                error: function(request, error){
+                                    console.log("fail");
+                                    console.log(error);
+                                    $("#puntini").html($("#puntini").html() + " OK");
+                                },
+                                success: function(res){
+                                    console.log("done");
+                                    $("#puntini").html($("#puntini").html() + ".");
+                                    setTimeout( checkSpegnimento,1000);
+                                }
+                            });
+                        };
+
+                        $(document).ready(function () {
+                            $.ajaxSetup({cache: false});
+                            checkSpegnimento();
+                        });
+                    </script>
+                {%endif%}
+
+                {%if cmd=='vrbP' %}
+                    Changing verbosity in progress.
+                {%endif%}   
+
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}
