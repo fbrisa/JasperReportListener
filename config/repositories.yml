@@ -20,6 +20,16 @@ repositories:
             database_password: null
         jasperParameters:
         folder: ./myjaspers
+    TEST_AFI:
+        parameters:
+            dstype: mysql
+            database_host: 172.16.1.11
+            database_port: null
+            database_name: TEST_AFI
+            database_user: agafi
+            database_password: agafi
+        folder: /home/francesco/Lavoro/agenziaafi/afi/stampe
+        
 
 
 jasperStarterFolder: /opt/jasperstarter

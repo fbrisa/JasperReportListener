@@ -69,6 +69,7 @@ public class WebServerJasperController extends WebServerController {
         session.getParms().keySet().stream().filter(
             (key) -> (! (key.equals("out") || key.equals("jasper") || key.equals("repo") || key.equals("folder")))
         ).forEachOrdered((key) -> {
+            parametriReport.add("-P");
             parametriReport.add(key + "=" + session.getParms().get(key));
         });
         
