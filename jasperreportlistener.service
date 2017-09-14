@@ -1,0 +1,16 @@
+[Unit]
+Description=jasperReportListener
+After=network.target auditd.service
+ConditionPathExists=/opt/jasperReportListener/config/repositories.yml
+
+[Service]
+#####EnvironmentFile=-/etc/default/ssh
+ExecStart=/opt/jasperReportListener/runme.sh
+######ExecReload=/bin/kill -HUP $MAINPID
+#KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+#####Alias=sshd.service
+

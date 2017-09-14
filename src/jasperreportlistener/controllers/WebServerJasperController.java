@@ -37,7 +37,12 @@ public class WebServerJasperController extends WebServerController {
         
         File file = new File(out);
         if (! file.isAbsolute()) {
+			if (! JasperReportListener.tmpFolder.exists()) {
+				// potrebbe essere stata cancellata nel frattempo
+				JasperReportListener.tmpFolder.mkdirs();
+			}
             out= JasperReportListener.tmpFolder+"/"+file.getName();
+			
         }
         
         

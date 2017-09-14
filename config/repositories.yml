@@ -29,6 +29,15 @@ repositories:
             database_user: agafi
             database_password: agafi
         folder: /home/francesco/Lavoro/agenziaafi/afi/stampe
+    vemoso_test_fra:
+        parameters:
+            dstype: mysql
+            database_host: localhost
+            database_port: null
+            database_name: vms_test
+            database_user: root
+            database_password: null
+        folder: /home/francesco/Lavoro/Giuseppe/telemetria/latoServer/src/AppBundle/Resources/public/stampe
         
 
 
